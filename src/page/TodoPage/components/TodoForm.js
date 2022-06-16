@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BoxAddTask, RowOfTask, InputField, SelectDate, ButtonAddTask } from "../shared/style/Todo.styled";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
@@ -26,14 +26,11 @@ function TodoForm() {
       task,
     });
 
-    console.log("[task]", task);
     setTaskName("");
     setTaskDescription("");
     setStartDate("");
     setEndDate("");
   }
-
-  useEffect(() => {}, []);
 
   return (
     <BoxAddTask>
