@@ -9,21 +9,12 @@ import Task from "./Task";
 function AllTodoList() {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.taskReducer);
-  const [checked, setChecked] = useState([]);
   //----------------- CREATE VARIABLE FOR FILTER BUTTON -----------------//
   const [filterTask, setFilterTask] = useState("All");
 
   // Add and Remove checked todo task
   function handleCheck(task, event) {
-    var updatedTask = [...checked];
-    const checkListID = checked?.map((item) => item.id);
-
-    if (event.target.checked) {
-      updatedTask = [...checked, event.target.value];
-    } else {
-      updatedTask.splice(checked.indexOf(event.target.value), 1);
-    }
-    setChecked(updatedTask);
+    const checkListID = tasks?.map((item) => item.id);
     dispatch({ type: "CHECK_TASK", id: task.id });
     checkListID.includes(task.id);
   }
